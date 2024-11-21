@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마우스엔터래...</title>
+  </head>
+  <style>
+    div {
+      width: 150px;
+      height: 150px;
+      background-color: lightgoldenrodyellow;
+      text-align: center;
+      line-height: 150px;
+    }
+  </style>
+  <body>
+    <!-- <div id="eventZone"></div>
+    <button id="btn" disabled>click me</button>
+    <span id="msg">button status: normal</span>
+    <h4>mouse position <span id="pos"> </span></h4>
+    <script>
+      let mouseZone = document.getElementById("eventZone")
+      // 마우스엔터
+      mouseZone.addEventListener("mouseenter", function () {
+        mouseZone.innerHTML = "<b>Mouse Enter</b>"
+        mouseZone.style.backgroundColor = "grey"
+        //console.log(mouseZone.style) < css속성 리스트
+      }) -->
+
+    <div id="eventZone"></div>
+    <button id="btn">click me</button>
+    <span id="msg">button status: normal</span>
+    <h4>mouse position <span id="pos"> </span></h4>
+    <script>
+      let mouseZone = document.getElementById("eventZone")
+      mouseZone.addEventListener("mouseenter",mouseIn());
+
+      // 함수를 따로 빼는 것(규모가 커질수록 사용 빈도↑)
+      function mouseIn () {
+        mouseZone.innerHTML = "<b>Mouse Enter</b>"
+        mouseZone.style.backgroundColor = "grey"
+        document.querySelector("#btn").disabled = true
+        //document.querySelector("#btn").style.display = "none" 이건 아예 자리까지 없애는 것
+        document.querySelector("#btn").style.visibility = 'hidden'  // 영역 유지
+      }
+
+      // 마우스 아웃 (함수 따로 빼지 않은 것)
+      mouseZone.addEventListener("mouseout", function () {
+        mouseZone.innerHTML = "<b>Mouse Out</b>"
+        mouseZone.style.backgroundColor = "white"
+        mouseZone.style.fontWeight = "bold"
+        document.querySelector("#btn").disabled = false
+        // document.querySelector("#btn").style.display = "inline"
+        document.querySelector("#btn").style.visibility = 'visible'
+      })
+    </script>
+  </body>
+</html>
